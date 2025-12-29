@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Meet the Developer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='dev.css') }}">
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <h1>👨‍💻 Meet the Developer</h1>
+    <a href="/" class="back-btn">🏠 Back to Dashboard</a>
+  </div>
+
+  <!-- CENTERING CONTAINER -->
+  <div class="developers-container">
+    <div class="dev-card">
+      <img src="{{ url_for('static', filename='arbaaz.jpg') }}" alt="Developer">
+      <h2>Arbaaj Mansoori</h2>
+      <p>
+        (May 2025 – July 2025)<br>
+        Sharda University<br>
+        arbaazmansoori701@gmail.com
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>

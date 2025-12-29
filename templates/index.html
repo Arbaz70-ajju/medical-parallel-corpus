@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Corpus Cleaning & Analytics Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="header">
+    <h1>📊 Corpus Cleaning & Analytics Dashboard 📊</h1>
+  </div>
+
+  <div class="dashboard-container">
+    <!-- Left Panel -->
+    <div class="left-panel">
+      <div class="panel-header">📁 Upload File</div>
+      <form id="upload-form" action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" required />
+        <button type="submit">Upload</button>
+      </form>
+
+      <div class="panel-header">🧹 Cleaning Operations</div>
+      <div class="operation-buttons">
+        <button onclick="performOp('remove_html')">Remove HTML Tags</button>
+        <button onclick="performOp('remove_short')">Remove Short Sentences</button>
+        <button onclick="performOp('remove_identical')">Remove Identical Sentences</button>
+        <button onclick="performOp('remove_english_in_hindi')">Remove English in Hindi</button>
+        <button onclick="performOp('remove_invalid')">Remove Invalid Sentences</button>
+        <button onclick="performOp('remove_duplicate_pairs')">Remove Duplicate Pairs</button>
+        <button onclick="performOp('remove_duplicate_column1')">Remove Dupes in Eng</button>
+        <button onclick="performOp('remove_duplicate_column2')">Remove Dupes in Hindi</button>
+        <button onclick="performOp('full_clean')">🔥 Full Clean</button>
+      </div>
+
+      <div class="panel-header">📊 Analytics Tools</div>
+      <div class="operation-buttons">
+        <button onclick="analyze('length_distribution')">Length Distribution</button>
+        <button onclick="analyze('word_count_scatter')">Word Count Scatter</button>
+        <button onclick="analyze('length_diff_hist')">Length Diff Histogram</button>
+        <button onclick="analyze('duplicates')">Duplicate Count</button>
+        <button onclick="analyze('top_words')">Top 10 Words</button>
+        <button onclick="analyze('extreme_sentences')">Longest vs Shortest</button>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; gap: 8px;">
+        <button id="download-btn" class="download-btn" style="display:none;">⬇️ Download File</button>
+        <button onclick="window.location.href='/developers'" class="download-btn">👨‍💻 Developed By</button>
+      </div>
+    </div>
+
+    <!-- Right Panel -->
+    <div class="right-panel">
+      <div class="panel-header">🗾 Uploaded File Statistics</div>
+      <div id="result-container"></div>
+      <div id="filename-display" class="filename-display"></div>
+
+      <div class="spinner" id="loader" style="display: none;"></div>
+      <p id="processing-msg" style="display: none; text-align:center; font-weight:bold;">Processing...</p>
+
+      <div id="chart-area"></div>
+      <a id="download-graph-link" href="#" download style="display:none;" class="download-btn">⬇️ Download Graph</a>
+
+      <div class="panel-header">⚖️ Similarity Analysis</div>
+      <button onclick="calculateSimilarity()">Calculate Similarity</button>
+      <div class="progress-box" id="similarity-progress"></div>
+
+      <div class="log-section" id="log">
+        <strong>📒 Operation Logs:</strong>
+        <ul id="log-list"></ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

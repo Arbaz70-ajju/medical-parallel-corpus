@@ -1,0 +1,198 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+}
+
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2b3e50;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  flex-wrap: wrap;
+}
+
+.header .logo {
+  position: absolute;
+  right: 20px;
+  height: 80px;
+}
+
+.dashboard-container {
+  display: flex;
+  flex-direction: row;
+  height: calc(100vh - 80px);
+  overflow: hidden;
+}
+
+.left-panel,
+.right-panel {
+  padding: 15px;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.left-panel {
+  width: 30%;
+  background-color: #ffffff;
+  border-right: 1px solid #ddd;
+}
+
+.right-panel {
+  width: 70%;
+  background-color: #f0f2f5;
+}
+
+.panel-header {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+  font-weight: 600;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 5px;
+}
+
+form input[type="file"] {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+form button {
+  padding: 8px 14px;
+  font-size: 14px;
+  margin-top: 5px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+.operation-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 15px;
+}
+
+.operation-buttons button {
+  padding: 8px 10px;
+  font-size: 14px;
+  background-color: #2b3e50;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.operation-buttons button:hover {
+  background-color: #5ac05f;
+  transform: scale(1.02);
+}
+
+.download-btn,
+#download-graph-link {
+  display: inline-block;
+  padding: 10px 16px;
+  font-size: 14px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 12px;
+  text-decoration: none;
+}
+
+.download-btn:hover,
+#download-graph-link:hover {
+  background-color: #218838;
+}
+
+.spinner {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #3498db;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.analysis-graph {
+  width: 100%;
+  max-height: 400px;
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.log-section {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #333;
+}
+
+#log-list {
+  list-style-type: square;
+  margin: 10px 0 0 20px;
+  padding: 0;
+}
+
+#filename-display {
+  font-weight: bold;
+  color: #1f4e79;
+  margin-top: 15px;
+  font-size: 16px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+  text-align: left;
+}
+
+table th {
+  background-color: #f2f2f2;
+  font-weight: 600;
+}
+
+/* Responsive improvement */
+@media screen and (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 100%;
+  }
+
+  .header .logo {
+    position: static;
+    margin: 10px auto 0;
+  }
+}
