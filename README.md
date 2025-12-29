@@ -2,8 +2,9 @@
 
 # Medical Parallel Corpus Cleaning & Analytics Dashboard
 
-A web dashboard built with **Flask**, **Pandas**, and **JavaScript** to clean and analyze English–Hindi parallel corpora.  
-It includes text cleaning operations, statistics, and visual analysis.
+This project focuses on cleaning and analyzing a bilingual English– Hindi parallel corpus. It removes noise and 
+duplicates, computes semantic similarity using LaBSE, and provides statistical and visual insights through a Flask- 
+based interface, ensuring higher quality data for machine translation and NLP tasks
 
 ## 🔧 Features
 
